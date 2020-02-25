@@ -1,0 +1,55 @@
+.item-opciones {
+    display: none
+}
+
+.item-descripcion:hover>.item-opciones {
+    display: block;
+    float: right;
+}
+
+
+/* Styles for tab labels */
+
+.mat-tab-label {
+    min-width: 25px !important;
+    padding: 15px;
+    background-color: transparent;
+    color: blue;
+    font-weight: 700;
+}
+
+
+/* Styles for the active tab label */
+
+.mat-tab-label.mat-tab-label-active {
+    min-width: 25px !important;
+    padding: 15px;
+    background-color: yellowgreen;
+    color: black;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+
+/* Styles for the ink bar */
+
+.mat-ink-bar {
+    background-color: green;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+    color: red;
+    font-size: 15px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.example-headers-align .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+    background-color: cadetblue;
+}

@@ -1,0 +1,85 @@
+<div class="toolbar">
+    <a routerLink="/"> <img src="../../../../assets/imagenes/chapingo.png" width="40" height="40">
+        <b>UACH</b>
+    </a>
+    <h4 style="text-align: center;">Registrar</h4>
+
+</div>
+
+<div class="col-md-6 offset-md-3 mt-5">
+
+    <div class="card">
+
+
+        <div class="card-header" style="text-align: center;">
+
+
+            <mat-icon class="red">person_add</mat-icon>
+        </div>
+
+
+        <div class="card-body">
+
+            <form (ngSubmit)="guardar()">
+                <div class='form-group'>
+                    <label for='item.nombre'>Nombre:</label>
+                    <input name="name" type='text' required [(ngModel)]='item.nombre' class='form-control' placeholder='Nombre' #name="ngModel" required minlength="4">
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger" style="margin-top:5px;">
+                        <div *ngIf="name.errors.required">
+                            El nombre es requerido!
+                        </div>
+                        <div *ngIf="name.errors.minlength">
+                            El nombre debe tener minimo 4 caracteres
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class='form-group'>
+                    <label for='item.usuario'>Usuario:</label>
+                    <input name="monitoreo" type='text' required [(ngModel)]='item.usuario' class='form-control' placeholder='Usuario' #monitoreo="ngModel" required minlength="4">
+                    <div *ngIf="monitoreo.invalid && (monitoreo.dirty || monitoreo.touched)" class="alert alert-danger" style="margin-top:5px;">
+                        <div *ngIf="monitoreo.errors.required">
+                            El usuario es requerida!
+                        </div>
+                        <div *ngIf="monitoreo.errors.minlength">
+                            El usuario debe tener minimo 4 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class='form-group'>
+                    <label for='item.password'>Contraseña:</label>
+                    <input name="variable" type='password' required [(ngModel)]='item.password' class='form-control' placeholder='Contraseña' #variable="ngModel" required minlength="4">
+                    <div *ngIf="variable.invalid && (variable.dirty || variable.touched)" class="alert alert-danger" style="margin-top:5px;">
+                        <div *ngIf="variable.errors.required">
+                            La contraseña es requerida!
+                        </div>
+                        <div *ngIf="variable.errors.minlength">
+                            La contraseña debe tener minimo 4 caracteres
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="" style="text-align: center;">
+                    <button mat-raised-button type="submit" [disabled]="name.invalid || monitoreo.invalid ||variable.invalid" class="btn btn-success btn-xs">
+                        <mat-icon >save</mat-icon>
+                        Guardar
+                    </button>
+                    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+                    <button mat-raised-button routerLink="/login" color="warn" style="margin-left: 3px">
+                        <mat-icon >cancel</mat-icon>
+                        Cerrar
+                    </button>
+                </div>
+
+
+
+
+
+            </form>
+        </div>
+    </div>
+</div>

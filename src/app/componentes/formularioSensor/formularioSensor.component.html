@@ -1,0 +1,87 @@
+<div class="" style="padding: 50px;">
+
+</div>
+<h3 align="center">
+    Registrar sensores</h3>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+{{name.length}}
+<form (ngSubmit)="guardar()">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class='form-group'>
+                <label for='item.nombresensor' style="font-size: 15px;"><h4>Nombre del Sensor:</h4></label>
+                <input style="font-size: 15px;" name="name" type='text' required [(ngModel)]='item.nombresensor' class='form-control' placeholder='Nombre Sensor' #name="ngModel" required minlength="4">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger" style="margin-top:5px;">
+                    <div *ngIf="name.errors.required">
+                        El nombre es requerida!
+                    </div>
+                    <div *ngIf="name.errors.minlength">
+                        El nombre debe tener minimo 4 caracteres
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class='form-group'>
+                <label for='item.monitoreo_idmonitoreo'><h4>Monitoreo:</h4></label>
+                <select style="font-size: 15px;" required [(ngModel)]='item.monitoreo_idmonitoreo' class='form-control' placeholder="ID" [ngModelOptions]="{standalone: true}" #unidad="ngModel">
+          <option style="font-size: 15px;"value="" selected>SELECCIONE MONITOREO</option>
+          <option style="font-size: 15px;" *ngFor="let unidad of unidades" [value]="unidad.id">{{unidad.nombre}}</option>
+        </select>
+                <div *ngIf="unidad.invalid && (unidad.dirty || unidad.touched)" class="alert alert-danger" style="margin-top:5px;">
+                    <div *ngIf="unidad.errors.required">
+                        El monitoreo es requerida!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class='form-group'>
+                <label for='item.variable_idvariable'> <h4>Variable:</h4></label>
+                <select style="font-size: 15px;" required [(ngModel)]='item.variable_idvariable' class='form-control' placeholder="IDV" [ngModelOptions]="{standalone: true}" #variable="ngModel">
+                  <option style="font-size: 15px;" value="" selected>SELECCIONE VARIABLE</option>
+                  <option style="font-size: 15px;" *ngFor="let variable of variables" [value]="variable.id">{{variable.nombre}}</option>
+                </select>
+                <div *ngIf="variable.invalid && (variable.dirty || variable.touched)" class="alert alert-danger" style="margin-top:5px;">
+                    <div *ngIf="variable.errors.required">
+                        La variable es requerida!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="" style="padding: 20px;">
+
+    </div>
+    <hr>
+    <div align="center">
+        <th width="40%">
+            <button mat-raised-button type="submit" [disabled]="name.invalid || unidad.invalid || variable.invalid" class="btn btn-primary btn-xs">
+                <mat-icon>beenhere</mat-icon> 
+                Aceptar</button>
+
+        </th>
+        <th width="41%">
+            <button mat-raised-button class="btn btn-success" [routerLink]="['/listadoSensor']">
+                <mat-icon>reply</mat-icon> 
+                Regresar</button>
+        </th>
+
+
+        <div class="" style="padding: 40px;">
+
+        </div>
+
+    </div>
+</form>

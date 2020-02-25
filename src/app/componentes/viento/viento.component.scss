@@ -1,0 +1,122 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    position: relative;
+    .spinner-background {
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        box-sizing: border-box;
+        line-height: inherit;
+        text-align: center;
+        overflow: hidden;
+        border-color: rgba(103, 58, 183, 0.12);
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 10px;
+    }
+    .mat-progress-spinner {
+        flex: 1 1 100%;
+        width: inherit;
+        height: inherit;
+    }
+}
+
+.basic-container {
+    padding: 30px;
+}
+
+.example-h2 {
+    margin: 24px 0;
+}
+
+ :not(spinner-container).spinner-container {
+    position: relative;
+    //text-align: center;
+    .spinner-background {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        line-height: 80px;
+        text-align: center;
+        overflow: hidden;
+        border-color: rgba(103, 58, 183, 0.12);
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 10px;
+    }
+}
+
+:not(card-body).card-body {
+    position: relative;
+    .spinner-background {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        line-height: 80px;
+        text-align: center;
+        overflow: hidden;
+        border-color: rgba(103, 58, 183, 0.12);
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 10px;
+    }
+}
+
+:host ::ng-deep .temperaturaJitomate circle {
+    stroke: rgb(45, 12, 194);
+}
+
+:host ::ng-deep .humedadJitomate circle {
+    stroke: rgb(238, 241, 39);
+}
+
+:host ::ng-deep .humedadJitomate2 circle {
+    stroke: rgb(39, 184, 241);
+}
+
+:host ::ng-deep .humedadJitomate3 circle {
+    stroke: rgb(241, 63, 39);
+}
+
+:host ::ng-deep .sueloJitomate circle {
+    stroke: rgb(194, 12, 12);
+}
+
+.alert {
+    width: 200px;
+    font-size: 11px;
+    padding: 10px;
+}
+
+
+/* Styles for tab labels */
+
+.mat-tab-label {
+    min-width: 25px !important;
+    padding: 15px;
+    background-color: transparent;
+    color: blue;
+    font-weight: 700;
+}
+
+
+/* Styles for the active tab label */
+
+.mat-tab-label.mat-tab-label-active {
+    min-width: 25px !important;
+    padding: 15px;
+    background-color: greenyellow;
+    color: black;
+    font-weight: 700;
+}
+
+
+/* Styles for the ink bar */
+
+.mat-ink-bar {
+    background-color: rgb(15, 17, 15);
+}

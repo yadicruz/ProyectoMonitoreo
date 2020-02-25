@@ -1,0 +1,81 @@
+<button mat-raised-button class="btn btn-outline-dark blue" routerLink="/formularioSensor">
+    <mat-icon>add_circle</mat-icon>
+    Agregar
+</button>
+<tr>
+    <div class="inner-addon left-addon">
+        <i class="glyphicon glyphicon-search colorIcono"></i>
+        <input style="margin-left: 50px; font-size: 15px; " type="text" class="form-control" [(ngModel)]="filterargs" placeholder="nombre sensor">
+    </div>
+</tr>
+
+
+<hr>
+<h4 align="center"> <span class="fi-envelope-closed"></span> ADMINISTRACIÓN DE LOS SENSORES</h4>
+<div class="example-container mat-elevation-z8 table-responsive" style="text-align: center;">
+
+    <table class="table table-striped">
+
+        <thead>
+
+            <tr>
+                <th class="table-success" width="20%">Descripción</th>
+                <th style="text-align: right;" class="table-danger" width="15%">Acciones</th>
+                <th style="text-align: left;" class="table-danger" width="15%"></th>
+                <th style="text-align: center;" class="table-secondary" width="20%">Monitoreo interno</th>
+                <th style="text-align: center;" class="table-info" width="20%">1. "Temp, HR" 2. "Humedad de suelo"</th>
+            </tr>
+
+
+        </thead>
+        <tbody>
+            <tr class="table table-primary" *ngFor="let item of listado | filtroSensor:'nombresensor':filterargs">
+                <td class="table-success" align="left">
+                    {{item.nombresensor | uppercase}}
+
+                </td>
+                <td class="table-primary" align="center">
+                    <a [routerLink]="['/detalles', item.idsensor, 5]" mat-raised-button class="btn btn-primary btn-xs ">
+                        <mat-icon>edit</mat-icon> Editar
+                    </a>
+
+                </td>
+                <td class="table-danger" align="center">
+                    <button mat-raised-button class="btn btn-danger btn-xs" (click)="confirmacion(item)" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-left: 9px">
+                        <mat-icon>delete_sweep</mat-icon> Eliminar
+                    </button>
+
+                </td>
+
+                <td class="table-danger" align="center">
+                    {{item.monitoreo_idmonitoreo}}
+                </td>
+                <td class="table-danger" align="center">
+                    {{item.variable_idvariable}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">CONFIRMACION</h4>
+            </div>
+            <div class="modal-body">
+                DESEAS ELIMINAR EL REGISTRO?
+            </div>
+            <div class="modal-footer">
+                <button mat-raised-button class="btn btn-primary btn-sm " data-dismiss="modal" data-toggle="modal" style="margin-left: 3px">
+                    
+                    <mat-icon>not_interested</mat-icon> 
+                    Cancelar</button>
+                <button mat-raised-button class="btn btn-danger btn-sm" (click)="borrar()" data-dismiss="modal">
+                    <mat-icon>delete</mat-icon> 
+                    Borrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>

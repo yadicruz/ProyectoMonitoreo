@@ -1,0 +1,12 @@
+button {
+    color: green;
+}
+
+a {
+    color: blue;
+}
+
+h1:hover {
+    color: #003366;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

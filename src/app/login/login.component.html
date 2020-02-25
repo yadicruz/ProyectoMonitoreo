@@ -1,0 +1,77 @@
+﻿<div class="toolbar">
+    <a routerLink="/"> <img src="../../../../assets/imagenes/chapingo.png" width="40" height="40">
+        <b>UACH</b>
+    </a>
+    <h4 style="text-align: center;">BIENVENIDO</h4>
+
+</div>
+
+
+
+<div class="col-md-6 offset-md-3 mt-5">
+
+    <div class="card" style="color: blueviolet;">
+
+        <div class="card-header" style="text-align: center; ">
+
+            <mat-icon class="usuario">account_circle</mat-icon>
+
+
+        </div>
+
+        <div class="card-body" style="text-align: center; font-size: medium;">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+
+
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon"><mat-icon class="red">person</mat-icon></i>
+
+                        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    </div>
+
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Usuario es requerido</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon"><mat-icon class="red">lock</mat-icon></i>
+                        <input style="font-size: 20px;" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    </div>
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Contraseña es requerido</div>
+                    </div>
+                </div>
+
+
+                <button [disabled]="loading" mat-button color="primary" style="width: 110px; /* Para que no se rompa en dos líneas, y lo translade tal cual. */
+                margin-left: 50%;
+                transform: translateX(-80%);" class="btn btn-outline-warning">
+                    <span  *ngIf="loading" class="spinner-border spinner-border-sm mr-1 "></span>
+                    <mat-icon >input</mat-icon>
+                Aceptar
+                </button>
+
+
+
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+
+            </form>
+
+            <button mat-stroket-button disabled class="blue" style="width: 110px; /* Para que no se rompa en dos líneas, y lo translade tal cual. */
+                margin-left: 60%; 
+                transform: translateX(150%);" [routerLink]="['/registrar']">
+                    <span   ></span>
+                    <mat-icon >person</mat-icon>
+                    Registrar
+                </button>
+
+
+
+        </div>
+    </div>
+</div>

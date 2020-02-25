@@ -1,0 +1,63 @@
+.item-opciones {
+    display: none;
+}
+
+.item-descripcion:hover>.item-opciones {
+    display: block;
+    float: right;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button {
+    text-align: right;
+    color: rgb(214, 55, 55);
+}
+
+.blue {
+    color: limegreen;
+}
+
+.example-container {
+    height: 400px;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.inner-addon {
+    position: relative;
+}
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.left-addon .glyphicon {
+    left: 50px;
+}
+
+.right-addon .glyphicon {
+    right: 0px;
+}
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+.colorIcono {
+    color: blue;
+    font-size: 15px;
+}
+
+a {
+    color: darkblue;
+}

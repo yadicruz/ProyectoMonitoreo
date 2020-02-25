@@ -1,0 +1,948 @@
+<mat-tab-group color="accent" [backgroundColor]="accent">
+    <mat-tab label="JITOMATES">
+
+        <hr>
+        <table class="table table-responsive-lg table-striped" style="font-size: large;">
+            <thead>
+                <tr class="table-responsive-lg ">
+                    <th width="30%">
+                        <div class="card text-white  mb-3" style="max-width: 35rem; background-color: white;">
+                            <div *ngFor="let item of sensor1" class="card-header" style="color: black; background-color:#7FFFD4;">TEMPERATURA {{item.temperatura }} °C</div>
+                            <div class="card-body">
+                                <div class="chart-container" style="position: relative; ">
+                                    <canvas id="canvas1" height="260">{{ Linechart1 }}</canvas>
+                                </div>
+
+                            </div>
+                            <div class="card-footer" *ngFor="let item of sensor1" style="color: black; font-size: 12px;">
+                                Fecha/Hora: {{item.fecha | date: 'medium'}}
+                                <hr>
+
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#temperaturaJ" style="font-size: 15px;" mat-raised-button style="background-color:  green; color: white;">
+                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th width="30%">
+                        <div class="card text-white  mb-3" style="max-width: 35rem; background-color: white;">
+                            <div *ngFor="let item of sensor1" class="card-header" style="color: black; background-color: #7FFFD4;">HUMEDAD {{item.humedad }} %</div>
+                            <div class="card-body">
+                                <div class="chart-container" style="position: relative;">
+                                    <canvas id="canvas" height="260">{{ Linechart }}</canvas>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngFor="let item of sensor1" style="color: black; font-size: 12px;">
+                                Fecha/Hora: {{item.fecha | date: 'medium'}}
+                                <hr>
+
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#humedadJ" style="font-size: 15px;" mat-raised-button color="warn">
+                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th width="30%">
+                        <div class="card text-white  mb-3" style="max-width: 35rem; background-color: white;">
+                            <div *ngFor="let item of sensor3" class="card-header" style="color: black; background-color: 	#7FFFD4;">HUMEDAD DEL SUELO {{item.humedad }} %</div>
+                            <div class="card-body">
+                                <div class="chart-container" style="position: relative;">
+                                    <canvas id="canvas2" height="260">{{ Linechart2 }}</canvas>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngFor="let item of sensor3" style="color: black; font-size: 12px;">
+                                Fecha/Hora: {{item.fecha | date: 'medium'}}
+                                <hr>
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.5px" data-target="#dispositivo3" style="margin: 2px" mat-raised-button style="background-color:  purple; color: white;" class="btn btn-primary">
+                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <hr>
+
+
+    </mat-tab>
+    <mat-tab label="FRESAS">
+        <hr>
+        <table class="table table-responsive-lg table-striped" style="font-size: large;">
+            <thead>
+                <tr class="table-responsive-lg ">
+                    <th width="30%">
+                        <div class="card text-white  mb-3" style="max-width: 35rem; background-color: white;">
+                            <div *ngFor="let item of sensor2" class="card-header" style="color: black; background-color: #90EE90;">TEMPERATURA: {{item.temperatura }} °C</div>
+                            <div class="card-body">
+                                <div style="display: block">
+                                    <canvas #myCanvas height="260">{{ GraficaTempFre }}</canvas>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngFor="let item of sensor2" style="color: black; font-size: 12px;">
+                                Fecha/Hora: {{item.fecha | date: 'medium'}}
+                                <hr>
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#temperaturaF" style="font-size: 15px;" mat-raised-button style="background-color:  green; color: white;">
+                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+
+                            </div>
+                        </div>
+                    </th>
+                    <th width="30%">
+                        <div class="card text-white  mb-3" style="max-width: 35rem; background-color: white;">
+                            <div *ngFor="let item of sensor2" class="card-header" style="color: black; background-color: #90EE90;">HUMEDAD RELATIVA: {{item.humedad }} %</div>
+                            <div class="card-body">
+                                <div style="display: block">
+                                    <canvas #humedadFresas height="260">{{ GraficaHumFre }}</canvas>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngFor="let item of sensor2" style="color: black; font-size: 12px;">Fecha/Hora: {{item.fecha}}
+                                <hr>
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#humedadF" style="font-size: 15px;" mat-raised-button color="warn">
+                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+
+                            </div>
+                        </div>
+                    </th>
+                    <th width="30%">
+                        <div class="card text-white  mb-3" style="max-width: 35rem; background-color: white;">
+                            <div *ngFor="let item of sensor2" class="card-header" style="color: black; background-color: #90EE90;">HUMEDAD DEL SUELO: 0 %</div>
+                            <div class="card-body">
+                                <div style="display: block">
+                                    <canvas #humedadSFresas height="260">{{ GraficaHusFre }}</canvas>
+                                </div>
+                            </div>
+                            <div class="card-footer" *ngFor="let item of sensor2" style="color: black; font-size: 12px;">Fecha/Hora: {{item.fecha}}
+                                <hr>
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#" style="font-size: 15px;" mat-raised-button color="primary">
+                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </mat-tab>
+    <mat-tab label="MONITOREO INTEGRAL">
+        <hr>
+        <h3>VISUALIZACION DE PROMEDIOS POR HORA</h3>
+        <hr>
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        JITOMATES
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        .
+                        <mat-icon>remove_red_eye</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header"> TEMPERATURA</div>
+                            <div class="card-body">
+                                <table style="margin: 0 auto;">
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechaTJ of valorA">
+                                                    <td>
+                                                        <br>{{fechaTJ | date: 'medium'}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Promedio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class=" table bg-warning" *ngFor="let promedioTJ of valorB">
+                                                    <td>
+                                                        <br>{{promedioTJ | number}} °C<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header"> HUMEDAD RELATIVA</div>
+                            <div class="card-body">
+                                <table style="margin: 0 auto;">
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechaTJ of valorC">
+                                                    <td>
+                                                        <br>{{fechaTJ | date: 'medium'}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Promedio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class=" table bg-warning" *ngFor="let promedioHJ of valorD">
+                                                    <td>
+                                                        <br>{{promedioHJ | number}} %<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header"> HUMEDAD DEL SUELO</div>
+                            <div class="card-body">
+                                <table style="margin: 0 auto;">
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechaTJ of valorE">
+                                                    <td>
+                                                        <br>{{fechaTJ | date: 'medium'}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Promedio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class=" table bg-warning" *ngFor="let promedioTJ of valorF">
+                                                    <td>
+                                                        <br>{{promedioTJ | number}} %<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        FRESAS
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        .
+                        <mat-icon>remove_red_eye</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header"> TEMPERATURA</div>
+                            <div class="card-body">
+                                <table style="margin: 0 auto;">
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechaTJ of valorG">
+                                                    <td>
+                                                        <br>{{fechaTJ | date: 'medium'}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Promedio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class=" table bg-warning" *ngFor="let promedioTJ of valorH">
+                                                    <td>
+                                                        <br>{{promedioTJ | number}} °C<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header"> HUMEDAD RELATIVA</div>
+                            <div class="card-body">
+                                <table style="margin: 0 auto;">
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechaTJ of valorI">
+                                                    <td>
+                                                        <br>{{fechaTJ | date: 'medium'}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Promedio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class=" table bg-warning" *ngFor="let promedioHJ of valorJ">
+                                                    <td>
+                                                        <br>{{promedioHJ | number}} %<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header"> HUMEDAD DEL SUELO</div>
+                            <div class="card-body">
+                                <table style="margin: 0 auto;">
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechahs of valorK">
+                                                    <td>
+                                                        <br>{{fechahs | date}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Hora</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechahs of valorMM">
+                                                    <td>
+                                                        <br>{{fechahs}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Promedio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class=" table bg-warning" *ngFor="let promedioTJ of valorL">
+                                                    <td>
+                                                        <br>{{promedioTJ | number}} %<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </mat-expansion-panel>
+
+
+
+        </mat-accordion>
+
+        <hr>
+        <h4 style="text-align: center;"> Otras opciones</h4>
+        <table class="table table-responsive-lg table-bordered" style="font-size: large;">
+            <thead>
+                <tr class="table-bordered ">
+                    <th width="5%">
+                        <hr> Descarga de registros del monitoreo interno
+                        <hr>
+                        <a href="http://localhost/api/descargar/reporte.php" style="margin: 0.6px" mat-raised-button style="background-color:  green; color: white;" class="btn">
+                            <mat-icon>archive</mat-icon> Descargar</a>
+                        <hr>
+                    </th>
+                    <th width="15%">
+                        <hr> Detalles de los datos a descargar
+                        <hr>
+                        <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#graficar" style="font-size: 15px;" mat-raised-button style="background-color:  rgba(0, 0, 255, 0.979); color: white;">
+                            <mat-icon>pageview</mat-icon> Detalles</a>
+                        <hr>
+                    </th>
+                </tr>
+            </thead>
+
+        </table>
+        <table class="table table-responsive-lg table-bordered" style="font-size: large;">
+            <thead>
+                <tr class="table-responsive-lg ">
+                    <th width="15%">
+                        <hr> Comparación de los resultados.
+                        <hr>
+                        <a href="http://localhost/api/graficar/graficaHumedad/graficaHumedad.php" style="margin: 2px" mat-raised-button color="warn" class="btn btn-primary">
+                            <mat-icon>show_chart</mat-icon> Graficar resultados</a>
+                        <hr>
+                    </th>
+
+                </tr>
+            </thead>
+
+        </table>
+
+
+
+
+    </mat-tab>
+</mat-tab-group>
+<div class="modal fade bs-example-modal-sm" id="graficar" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                Todos los resultados
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-responsive-lg table-bordered">
+                    <thead>
+                        <tr class="table table-secondary">
+                            <th width="10%">REGISTRO</th>
+                            <th width="10%">FECHA</th>
+                            <th width="10%">TEMPERATURA</th>
+                            <th width="10%">HUMEDAD RELATIVA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of listado1">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.temperatura}}
+                            </td>
+                            <td align="center">
+                                {{item.humedad}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-responsive-lg table-bordered">
+                    <thead>
+                        <tr class="table table-secondary">
+                            <th width="10%">REGISTRO</th>
+                            <th width="10%">FECHA</th>
+                            <th width="10%">HUMEDAD DEL SUELO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of listadoSuelo">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.humedad}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--TEMPERATURA PARA LOS JITOMATES -->
+<div class="modal fade bs-example-modal-sm" id="temperaturaJ" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                REGISTROS DE TEMPERATURA PARA EL JITOMATE
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive-lg">
+                    <thead>
+                        <tr class="table table-secondary">
+                            <th width="10%">NOMBRE DEL SENSOR</th>
+                            <th width="10%">FECHA/HORA</th>
+                            <th width="10%">TEMPERATURA</th>
+
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor1">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.temperatura }}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--HR PARA LOS JITOMATES -->
+<div class="modal fade bs-example-modal-sm" id="humedadJ" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                REGISTROS DE HUMEDAD RELATIVA PARA EL JITOMATE
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive-lg">
+                    <thead>
+                        <tr class="table table-secondary">
+                            <th width="10%">NOMBRE DEL SENSOR</th>
+                            <th width="10%">FECHA/HORA</th>
+                            <th width="10%">HUMEDAD RELATIVA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor1">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.humedad }}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--TEMPERATURA PARA LOS JITOMATES -->
+<div class="modal fade bs-example-modal-sm" id="temperaturaF" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                REGISTROS DE TEMPERATURA PARA LA FRESA
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive-lg">
+                    <thead>
+                        <tr class="table table-secondary">
+                            <th width="10%">NOMBRE DEL SENSOR</th>
+                            <th width="10%">FECHA/HORA</th>
+                            <th width="10%">TEMPERATURA</th>
+
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor2">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.temperatura }}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--HR PARA LOS JITOMATES -->
+<div class="modal fade bs-example-modal-sm" id="humedadF" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                REGISTROS DE HUMEDAD RELATIVA PARA LA FRESA
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive-lg">
+                    <thead>
+                        <tr class="table table-secondary">
+                            <th width="10%">NOMBRE DEL SENSOR</th>
+                            <th width="10%">FECHA/HORA</th>
+                            <th width="10%">HUMEDAD RELATIVA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor2">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.humedad }}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-sm" id="dispositivo1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                Detalles sensor 1
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive-lg">
+                    <thead>
+                        <tr class="table table-secondary">
+                            <th width="10%">REGISTRO</th>
+                            <th width="10%">FECHA</th>
+                            <th width="10%">TEMPERATURA</th>
+                            <th width="10%">HUMEDAD RELATIVA</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor1">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.temperatura }}
+                            </td>
+                            <td align="center">
+                                {{item.humedad }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="dispositivo2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                Detalles sensor 2
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table table-striped">
+                    <thead>
+                        <tr class="table table-secondary">
+
+                            <th width="10%">REGISTRO</th>
+                            <th width="10%">FECHA</th>
+                            <th width="10%">TEMPERATURA</th>
+                            <th width="10%">HUMEDAD RELATIVA</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor2">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.temperatura }}
+                            </td>
+                            <td align="center">
+                                {{item.humedad }}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="dispositivo3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                Detalles sensor 3
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive-lg table-bordered">
+                    <thead>
+                        <tr class="table table-secondary">
+                            <th width="10%">REGISTRO</th>
+                            <th width="10%">FECHA</th>
+                            <th width="10%">HUMEDAD DEL SUELO</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor3">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+
+                            <td align="center">
+                                {{item.humedad}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="dispositivo4" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                Detalles sensor 4
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive-lg table-bordered">
+                    <thead>
+                        <tr class="table table-secondary">
+
+                            <th width="10%">REGISTRO</th>
+                            <th width="10%">FECHA</th>
+                            <th width="10%">TEMPERATURA</th>
+                            <th width="10%">HUMEDAD RELATIVA</th>
+                            <th width="10%">HUMEDAD DEL SUELO</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor4">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.temperatura }}
+                            </td>
+                            <td align="center">
+                                {{item.humedad }}
+                            </td>
+                            <td align="center">
+                                {{item.humedad }}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="dispositivo5" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                Detalles sensor 5
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive-lg table-bordered">
+                    <thead>
+                        <tr class="table table-secondary">
+
+                            <th width="10%">REGISTRO</th>
+                            <th width="10%">FECHA</th>
+                            <th width="10%">TEMPERATURA</th>
+                            <th width="10%">HUMEDAD RELATIVA</th>
+                            <th width="10%">HUMEDAD DEL SUELO</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="table table-primary" *ngFor="let item of todossensor5">
+                            <td class="item-descripcion">
+                                {{item.nombresensor| uppercase}}
+                            </td>
+                            <td align="center">
+                                {{item.fecha}}
+                            </td>
+                            <td align="center">
+                                {{item.temperatura }}
+                            </td>
+                            <td align="center">
+                                {{item.humedad }}
+                            </td>
+                            <td align="center">
+                                {{item.humedad }}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,180 @@
+<h4>DISPOSITIVO 1</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr class="active">
+            <th>REGISTRO</th>
+            <th width="15%">FECH</th>
+            <th width="15%">TEMPERATURA</th>
+            <th width="15%">HUMEDAD RELATIVA</th>
+        </tr>
+        <tr class="active">
+            <th>
+            </th>
+            <th></th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listado2" class="active">
+            <td class="item-descripcion">
+                {{item.idsensor}}
+                <span class="item-opciones">
+          <a [routerLink]="['/detallesDispositivo2', item.id, 5]" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+          <button class="btn btn-danger btn-xs" (click)="confirmacion(item)" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="glyphicon glyphicon-erase"></i> Eliminar</button>
+        </span>
+            </td>
+            <td class="active" align="center">
+                {{item.fecha}}
+            </td>
+            <td align="center">
+                {{item.temperatura }}
+            </td>
+            <td align="center">
+                {{item.humedad }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>DISPOSITIVO 3</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>REGISTRO</th>
+            <th width="15%">FECHA</th>
+            <th width="15%">TEMPERATURA</th>
+            <th width="15%">HUMEDAD RELATIVA</th>
+        </tr>
+        <tr>
+            <th>
+            </th>
+            <th></th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listado3">
+            <td class="item-descripcion">
+                {{item.idsensor}}
+                <span class="item-opciones">
+          <a [routerLink]="['/detallesDispositivo3', item.id, 5]" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+          <button class="btn btn-danger btn-xs" (click)="confirmacion(item)" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="glyphicon glyphicon-erase"></i> Eliminar</button>
+        </span>
+            </td>
+            <td align="center">
+                {{item.fecha}}
+            </td>
+            <td align="center">
+                {{item.temperatura }}
+            </td>
+            <td align="center">
+                {{item.humedad }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>DISPOSITIVO 4</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>REGISTRO</th>
+            <th width="15%">FECHA</th>
+            <th width="15%">TEMPERATURA</th>
+            <th width="15%">HUMEDAD RELATIVA</th>
+        </tr>
+        <tr>
+            <th>
+            </th>
+            <th></th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listado4">
+            <td class="item-descripcion">
+                {{item.idsensor}}
+                <span class="item-opciones">
+          <a [routerLink]="['/detallesDispositivo4', item.id, 5]" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+          <button class="btn btn-danger btn-xs" (click)="confirmacion(item)" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="glyphicon glyphicon-erase"></i> Eliminar</button>
+        </span>
+            </td>
+            <td align="center">
+                {{item.fecha}}
+            </td>
+            <td align="center">
+                {{item.temperatura }}
+            </td>
+            <td align="center">
+                {{item.humedad }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>DISPOSITIVO 5</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>REGISTRO</th>
+            <th width="15%">FECHA</th>
+            <th width="15%">TEMPERATURA</th>
+            <th width="15%">HUMEDAD RELATIVA</th>
+        </tr>
+        <tr>
+            <th>
+            </th>
+            <th></th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listado5">
+            <td class="item-descripcion">
+                {{item.idsensor}}
+                <span class="item-opciones">
+          <a [routerLink]="['/detallesDispositivo5', item.id, 5]" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+          <button class="btn btn-danger btn-xs" (click)="confirmacion(item)" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="glyphicon glyphicon-erase"></i> Eliminar</button>
+        </span>
+            </td>
+            <td align="center">
+                {{item.fecha}}
+            </td>
+            <td align="center">
+                {{item.temperatura }}
+            </td>
+            <td align="center">
+                {{item.humedad }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div style="text-align: center;" class="modal-header">
+                Confirmar
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                Desea eliminar el registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Rechazar</button>
+                <button type="button" class="btn btn-danger" (click)="borrar()" data-dismiss="modal">Borrar</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
