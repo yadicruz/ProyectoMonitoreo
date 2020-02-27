@@ -44,5 +44,8 @@ export class Data {
 
       FHSF: number;
 
+
+nuevo : number;
+
     
 }

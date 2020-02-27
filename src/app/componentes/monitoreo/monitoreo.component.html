@@ -1,4 +1,4 @@
-<div class="" style="padding: 50px;">
+<div class="" style="padding: 30px;">
 
     <marquee>
         <h1>SISTEMA DE MONITOREO AMBIENTAL EXTERNO E INTERNO </h1>
@@ -16,7 +16,7 @@
                 <div class="mt-4">
 
                     <div align="center">
-                        <a [routerLink]="['/monitoreoInEx']" mat-raised-button class="btn btn-success">
+                        <a [routerLink]="['/monitoreoInEx']" style="margin: 2px" mat-raised-button style="background-color:  blue; color: white;" class="btn btn-primary">
                             <mat-icon>vignette</mat-icon> MONITOREO INTERNO</a>
                     </div>
                 </div>
@@ -27,8 +27,9 @@
                 <img class="rounded img-fluid" class="img-rounded" src="/assets/imagenes/variables/externo.png" width="400" height="300" />
                 <div class="mt-4">
                     <div align="center">
-                        <button [routerLink]="['/humedad']" mat-raised-button style="margin: 2px" class="btn btn-success">
-                                <mat-icon>nature</mat-icon> MONITOREO EXTERNO</button>
+
+                        <a [routerLink]="['/humedad']" style="margin: 2px" mat-raised-button style="background-color:  red; color: white;" class="btn btn-primary">
+                            <mat-icon>nature</mat-icon> MONITOREO EXTERNO</a>
                     </div>
                 </div>
             </div>

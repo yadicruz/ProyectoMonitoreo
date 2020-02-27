@@ -1,3 +1,10 @@
+<div class="" style="padding: 20px;">
+
+    <marquee width="200" height="30">
+        <h1>MONITOREO INTERNO </h1>
+    </marquee>
+
+</div>
 <mat-tab-group color="accent" [backgroundColor]="accent">
     <mat-tab label="JITOMATES">
 
@@ -103,7 +110,7 @@
                     </th>
                     <th width="30%">
                         <div class="card text-white  mb-3" style="max-width: 35rem; background-color: white;">
-                            <div *ngFor="let item of sensor2" class="card-header" style="color: black; background-color: #90EE90;">HUMEDAD DEL SUELO: 0 %</div>
+                            <div *ngFor="let item of sensor4" class="card-header" style="color: black; background-color: #90EE90;">HUMEDAD DEL SUELO: {{item.humedad}} %</div>
                             <div class="card-body">
                                 <div style="display: block">
                                     <canvas #humedadSFresas height="260">{{ GraficaHusFre }}</canvas>
@@ -123,16 +130,15 @@
     </mat-tab>
     <mat-tab label="MONITOREO INTEGRAL">
         <hr>
-        <h3>VISUALIZACION DE PROMEDIOS POR HORA</h3>
-        <hr>
+
         <mat-accordion class="example-headers-align">
             <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        JITOMATES
+                        PROMEDIO POR HORA
                     </mat-panel-title>
                     <mat-panel-description>
-                        .
+                        JITOMATES
                         <mat-icon>remove_red_eye</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -276,10 +282,10 @@
             <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        FRESAS
+                        PROMEDIO POR HORA
                     </mat-panel-title>
                     <mat-panel-description>
-                        .
+                        FRESAS
                         <mat-icon>remove_red_eye</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -445,39 +451,32 @@
         <table class="table table-responsive-lg table-bordered" style="font-size: large;">
             <thead>
                 <tr class="table-bordered ">
-                    <th width="5%">
-                        <hr> Descarga de registros del monitoreo interno
+                    <th width="10%">
+                        <hr> Registros del monitoreo interno
                         <hr>
                         <a href="http://localhost/api/descargar/reporte.php" style="margin: 0.6px" mat-raised-button style="background-color:  green; color: white;" class="btn">
                             <mat-icon>archive</mat-icon> Descargar</a>
                         <hr>
                     </th>
-                    <th width="15%">
-                        <hr> Detalles de los datos a descargar
+                    <th width="10%">
+                        <hr> Registros a descargar
                         <hr>
                         <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#graficar" style="font-size: 15px;" mat-raised-button style="background-color:  rgba(0, 0, 255, 0.979); color: white;">
                             <mat-icon>pageview</mat-icon> Detalles</a>
                         <hr>
                     </th>
-                </tr>
-            </thead>
-
-        </table>
-        <table class="table table-responsive-lg table-bordered" style="font-size: large;">
-            <thead>
-                <tr class="table-responsive-lg ">
-                    <th width="15%">
+                    <th width="10%">
                         <hr> Comparación de los resultados.
                         <hr>
-                        <a href="http://localhost/api/graficar/graficaHumedad/graficaHumedad.php" style="margin: 2px" mat-raised-button color="warn" class="btn btn-primary">
+                        <a [routerLink]="['/temperaturaG']" style="margin: 2px" mat-raised-button color="warn" class="btn btn-primary">
                             <mat-icon>show_chart</mat-icon> Graficar resultados</a>
                         <hr>
                     </th>
-
                 </tr>
             </thead>
 
         </table>
+
 
 
 

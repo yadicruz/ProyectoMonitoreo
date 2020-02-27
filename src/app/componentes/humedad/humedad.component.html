@@ -1,3 +1,10 @@
+<div class="" style="padding: 20px;">
+
+    <marquee width="200" height="30">
+        <h1>MONITOREO EXTERNO </h1>
+    </marquee>
+
+</div>
 <mat-tab-group color="warn">
     <mat-tab label="VARIABLES A MONITOREAR">
         <hr>
@@ -38,7 +45,7 @@
                     </th>
                     <th width="30%">
                         <div class="card text-white  mb-3 " style="max-width: 35rem; background-color: white;">
-                            <div *ngFor="let item of listadoRocio" class="card-header" style="color: black; background-color:#7FFFD4;">VIENTO: {{item.Velocidadviento}}%</div>
+                            <div *ngFor="let item of listadoRocio" class="card-header" style="color: black; background-color:#7FFFD4;">PRECIPITACIÓN: {{item.Velocidadviento}}%</div>
                             <div class="card-body">
                                 <div class="chart-container" style="position: relative;">
                                     <canvas id="vienExterior" height="210">{{ Viento }}</canvas>
@@ -79,7 +86,7 @@
                         <a href="http://localhost/api/descargar/reporte.php" style="margin: 0.6px" mat-raised-button style="background-color:  green; color: white;" class="btn">
                             <mat-icon>archive</mat-icon> Descargar</a>
 
-                        <a href="http://localhost/api/graficar/graficaHumedad/graficaHumedad.php" style="margin: 2px" mat-raised-button color="warn" class="btn btn-primary">
+                        <a [routerLink]="['/temperaturaG']" style="margin: 2px" mat-raised-button color="warn" class="btn btn-primary">
                             <mat-icon>timeline</mat-icon> Graficar</a>
                         <hr>
 
@@ -98,7 +105,7 @@
             <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        JITOMATES
+                        PROMEDIOS POR HORA
                     </mat-panel-title>
                     <mat-panel-description>
                         .
