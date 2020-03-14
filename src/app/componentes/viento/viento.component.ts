@@ -33,7 +33,10 @@ export class VientoComponent implements OnInit {
  @Input () humedadrelativaJ;
  @Input () temperaturaF : number;
  @Input () humedadrelativaF : number;
-
+ @Input () humedadsueloF : number;
+ @Input () humedadsueloJ: number;
+ @Input() estadoSF: number;
+ @Input() estadoSJ: number;
   sensor1; sensor2; sensor3; sensor4;sensor5;
   valor = false;
   valor1 = true;
@@ -162,6 +165,38 @@ export class VientoComponent implements OnInit {
       }else if(humedadrelativaF == 68 ){
         this.estadoHRf =4;
        // return this.estadoHRf
+      }
+    }
+
+    //Evaluacion de la humedad relativa de fresas
+    humedadsueloFresas(humedadsueloF){
+      if( humedadsueloF >= 90){
+        this.estadoSF =1;
+        return "SUSPENDER EL RIEGO"
+      }else
+      if(humedadsueloF <= 70 ){
+        this.estadoSF =2;
+        return "COMENZAR EL RIEGO"
+      } else
+       if(humedadsueloF<=89 && humedadsueloF>=70){
+        this.estadoSF =3;
+        return "ÓPTIMO"
+
+      }
+    }
+    humedadsueloJitomates(humedadsueloJ){
+      if( humedadsueloJ >= 60){
+        this.estadoSJ =1;
+        return "SUSPENDER EL RIEGO"
+      }else
+      if(humedadsueloJ <= 40 ){
+        this.estadoSJ =2;
+        return "COMENZAR EL RIEGO"
+      } else
+       if(humedadsueloJ<=50 && humedadsueloJ>=45){
+        this.estadoSJ =3;
+        return "ÓPTIMO"
+
       }
     }
 

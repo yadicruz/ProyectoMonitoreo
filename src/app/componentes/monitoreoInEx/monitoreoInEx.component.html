@@ -1,8 +1,8 @@
 <div class="" style="padding: 20px;">
 
-    <marquee width="200" height="30">
+    <h1 width="200" height="30">
         <h1>MONITOREO INTERNO </h1>
-    </marquee>
+    </h1>
 
 </div>
 <mat-tab-group color="accent" [backgroundColor]="accent">
@@ -143,7 +143,7 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header"> TEMPERATURA</div>
                             <div class="card-body">
@@ -152,13 +152,29 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Fecha / Inicio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr class="table table-primary" *ngFor="let fechaTJ of valorA">
                                                     <td>
                                                         <br>{{fechaTJ | date: 'medium'}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechafin of valorB1">
+                                                    <td>
+                                                        <br>{{fechafin }}<br>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -186,7 +202,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header"> HUMEDAD RELATIVA</div>
                             <div class="card-body">
@@ -195,7 +211,7 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Fecha / inicio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -207,6 +223,23 @@
                                             </tbody>
                                         </table>
                                     </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechafin of valorB2">
+                                                    <td>
+                                                        <br>{{fechafin }}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
                                     <th>
                                         <table class="table table-bordered">
                                             <thead>
@@ -229,7 +262,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-9" style="padding: 0px 0px 0px 350px;">
                         <div class="card">
                             <div class="card-header"> HUMEDAD DEL SUELO</div>
                             <div class="card-body">
@@ -238,7 +271,7 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Fecha / inicio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -250,6 +283,23 @@
                                             </tbody>
                                         </table>
                                     </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechafin of valorB3">
+                                                    <td>
+                                                        <br>{{fechafin }}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
                                     <th>
                                         <table class="table table-bordered">
                                             <thead>
@@ -290,7 +340,7 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header"> TEMPERATURA</div>
                             <div class="card-body">
@@ -299,7 +349,7 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Fecha / inicio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -311,6 +361,23 @@
                                             </tbody>
                                         </table>
                                     </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechafin of valorB4">
+                                                    <td>
+                                                        <br>{{fechafin }}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
                                     <th>
                                         <table class="table table-bordered">
                                             <thead>
@@ -333,7 +400,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header"> HUMEDAD RELATIVA</div>
                             <div class="card-body">
@@ -342,7 +409,7 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Fecha / inicio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -354,6 +421,23 @@
                                             </tbody>
                                         </table>
                                     </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechafin of valorB5">
+                                                    <td>
+                                                        <br>{{fechafin }}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+
                                     <th>
                                         <table class="table table-bordered">
                                             <thead>
@@ -376,7 +460,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <hr>
+
+                    <div class="col-sm-9" style="padding: 0px 0px 0px 350px;">
                         <div class="card">
                             <div class="card-header"> HUMEDAD DEL SUELO</div>
                             <div class="card-body">
@@ -401,13 +487,29 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Hora</th>
+                                                    <th scope="col">inicio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr class="table table-primary" *ngFor="let fechahs of valorMM">
                                                     <td>
                                                         <br>{{fechahs}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechafin of valorB6">
+                                                    <td>
+                                                        <br>{{fechafin }}<br>
                                                     </td>
                                                 </tr>
                                             </tbody>

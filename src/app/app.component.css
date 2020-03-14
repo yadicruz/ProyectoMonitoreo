@@ -17,7 +17,7 @@ h6 {
 }
 
 a {
-    color: black;
+    color: blue;
     font-size: 4;
 }
 
@@ -170,15 +170,14 @@ svg#rocket-smoke {
 }
 
 a,
-a:visited,
-a:hover {
+a:visited {
     color: white;
     text-align: center;
     font-size: 20px;
 }
 
 a:hover {
-    color: red;
+    color: black;
 }
 
 .terminal {

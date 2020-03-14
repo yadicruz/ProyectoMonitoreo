@@ -1,8 +1,8 @@
 <div class="" style="padding: 20px;">
 
-    <marquee width="200" height="30">
+    <h1 width="200" height="30">
         <h1>MONITOREO EXTERNO </h1>
-    </marquee>
+    </h1>
 
 </div>
 <mat-tab-group color="warn">
@@ -134,17 +134,34 @@
                                             </tbody>
                                         </table>
                                     </th>
+
                                     <th>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Hora</th>
+                                                    <th scope="col">inicio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr class="table table-primary" *ngFor="let fechaTJ of valorM">
                                                     <td>
                                                         <br>{{fechaTJ }}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" whidth=20%>Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechaTJ of valorN1">
+                                                    <td>
+                                                        <br>{{fechaTJ}}<br>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -197,11 +214,27 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Hora</th>
+                                                    <th scope="col">inicio</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr class="table table-primary" *ngFor="let fechaTJ of valorO">
+                                                    <td>
+                                                        <br>{{fechaTJ}}<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </th>
+                                    <th>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" whidth=20%>Final</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table table-primary" *ngFor="let fechaTJ of valorN2">
                                                     <td>
                                                         <br>{{fechaTJ}}<br>
                                                     </td>
@@ -244,7 +277,7 @@
                         <th width="10%">HORA</th>
                         <th width="10%">TEMPERATURA</th>
                         <th width="10%">HUMEDAD RELATIVA</th>
-                        <th width="10%">VIENTO</th>
+                        <th width="10%">PRECIPITACIÓN</th>
                     </tr>
                 </thead>
                 <tbody>

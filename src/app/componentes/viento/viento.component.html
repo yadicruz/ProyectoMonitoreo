@@ -20,7 +20,7 @@
                             <h1 style="text-align: center; font-size: 15px;"> 20 - 30 °C</h1>
                         </td>
                     </tr>
-                    <tr class="table-bordered bg-danger ">
+                    <tr class="table-bordered bg-danger " style="color: white;">
                         <td align="center">
                             <h1 style="text-align: center; font-size: 15px;"> Máximo</h1>
                         </td>
@@ -41,10 +41,7 @@
             <h1 style="text-align: center; font-size: 15px; "> HUMEDAD RELATIVA</h1>
 
             <table class="table table-secondary ">
-                <tr class="table  " style="background-color:#000080; color: white;">
-                    <th width="30% ">Status</th>
-                    <th width="40% ">valor</th>
-                </tr>
+
                 <tbody>
                     <tr class="table-bordered bg-warning ">
                         <td align="center">
@@ -54,7 +51,7 @@
                             <h1 style="text-align: center; font-size: 15px;"> 60 - 80 %</h1>
                         </td>
                     </tr>
-                    <tr class="table-bordered bg-danger ">
+                    <tr class="table-bordered bg-danger " style="color: white;">
                         <td align="center">
                             <h1 style="text-align: center; font-size: 15px;"> Máximo</h1>
                         </td>
@@ -72,6 +69,38 @@
                     </tr>
                 </tbody>
             </table>
+            <h1 style="text-align: center; font-size: 15px; "> HUMEDAD DEL SUELO</h1>
+
+            <table class="table table-secondary ">
+
+                <tbody>
+                    <tr class="table-bordered bg-warning ">
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> Óptimo</h1>
+                        </td>
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> 45 - 50 %</h1>
+                        </td>
+                    </tr>
+                    <tr class="table-bordered bg-danger " style="color: white;">
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> Máximo</h1>
+                        </td>
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> 60 %</h1>
+                        </td>
+                    </tr>
+                    <tr class="table-bordered bg-primary ">
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> Mínimo</h1>
+                        </td>
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> 40 %</h1>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
 
         </div>
         <h3>ESTADO ACTUAL</h3>
@@ -188,11 +217,48 @@
                         <div *ngFor="let item of sensor3 " class="card-header " style="color: black; ">
                             <h4 class=" ">HUMEDAD DEL SUELO</h4>
                         </div>
-                        <div class="card-body " style="text-align: center;  ">
-                            <circle-progress titleColor="#000000 " [showSubtitle]="false " unitsFontSize="20 " [showUnits]="true " percent="{{item.humedad }} " [radius]="80 " [outerStrokeWidth]="14 " [innerStrokeColor]=" '#c0c0c0'
-            " [innerStrokeWidth]="14 " [outerStrokeColor]=" '#ff0000' " [toFixed]=" '1' " [animation]="true " [animationDuration]="300 " [outerStrokeGradient]="true " [outerStrokeGradientStopColor]=" '#00ffff' " [space]=" '-14' " [titleFontWeight]=" '700' "
-                                [unitsFontWeight]=" '700'
+                        <div class="card-body " style="text-align: center;">
+                            {{humedadsueloJitomates(item.humedad)}}
+                            <div [ngSwitch]="estadoSJ">
+                                <div *ngSwitchCase="1">
+                                    <circle-progress titleColor="#000000 " [showSubtitle]="false " unitsFontSize="20 " [showUnits]="true " percent="{{item.humedad }} " [radius]="80 " [outerStrokeWidth]="14 " [innerStrokeColor]=" '#c0c0c0'
+            " [innerStrokeWidth]="14 " [outerStrokeColor]=" '#cc0000' " [toFixed]=" '1' " [animation]="true " [animationDuration]="300 " [outerStrokeGradient]="true " [outerStrokeGradientStopColor]=" '#00ffff' " [space]=" '-14' " [titleFontWeight]=" '700' "
+                                        [unitsFontWeight]=" '700'
             " [titleFontSize]=" '38' " [unitsFontSize]=" '34' "></circle-progress>
+                                    <div class="alert alert-danger " role="alert ">
+                                        "ESTADO MÁXIMO "
+                                        <button type="button " class="close " data-dismiss="alert " aria-label="Close ">
+                    <span aria-hidden="true ">&times;</span>
+                </button>
+                                    </div>
+                                </div>
+                                <div *ngSwitchCase="2">
+                                    <circle-progress titleColor="#000000 " [showSubtitle]="false " unitsFontSize="20 " [showUnits]="true " percent="{{item.humedad }} " [radius]="80 " [outerStrokeWidth]="14 " [innerStrokeColor]=" '#c0c0c0'
+            " [innerStrokeWidth]="14 " [outerStrokeColor]=" '#0099FF' " [toFixed]=" '1' " [animation]="true " [animationDuration]="300 " [outerStrokeGradient]="true " [outerStrokeGradientStopColor]=" '#00ffff' " [space]=" '-14' " [titleFontWeight]=" '700' "
+                                        [unitsFontWeight]=" '700'
+            " [titleFontSize]=" '38' " [unitsFontSize]=" '34' "></circle-progress>
+                                    <div class="alert alert-primary " role="alert ">
+                                        "ESTADO MÍNIMO "
+                                        <button type="button " class="close " data-dismiss="alert " aria-label="Close ">
+                    <span aria-hidden="true ">&times;</span>
+                </button>
+                                    </div>
+                                </div>
+                                <div *ngSwitchCase="3">
+                                    <circle-progress titleColor="#000000 " [showSubtitle]="false " unitsFontSize="20 " [showUnits]="true " percent="{{item.humedad }} " [radius]="80 " [outerStrokeWidth]="14 " [innerStrokeColor]=" '#c0c0c0'
+            " [innerStrokeWidth]="14 " [outerStrokeColor]=" '##ffCC00' " [toFixed]=" '1' " [animation]="true " [animationDuration]="300 " [outerStrokeGradient]="true " [outerStrokeGradientStopColor]=" '#00ffff' " [space]=" '-14' " [titleFontWeight]=" '700' "
+                                        [unitsFontWeight]=" '700'
+            " [titleFontSize]=" '38' " [unitsFontSize]=" '34' "></circle-progress>
+                                    <div class="alert alert-warning " role="alert ">
+                                        "ESTADO ÓPTIMO "
+                                        <button type="button " class="close " data-dismiss="alert " aria-label="Close ">
+                    <span aria-hidden="true ">&times;</span>
+                </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                         <div class="card-footer ">
                             <small class="text-muted ">Actualizado el {{item.fecha | date: 'd/M/yyyy'}}</small>
@@ -222,7 +288,7 @@
                             <h1 style="text-align: center; font-size: 15px;"> 15 - 20 °C</h1>
                         </td>
                     </tr>
-                    <tr class="table-bordered bg-danger ">
+                    <tr class="table-bordered bg-danger" style="color: white;">
                         <td align="center">
                             <h1 style="text-align: center; font-size: 15px;"> Máximo</h1>
                         </td>
@@ -243,10 +309,7 @@
             <h1 style="text-align: center; font-size: 15px; "> HUMEDAD RELATIVA</h1>
 
             <table class="table table-secondary ">
-                <tr class="table  " style="background-color:#000080; color: white;">
-                    <th width="30% ">Status</th>
-                    <th width="40% ">valor</th>
-                </tr>
+
                 <tbody>
                     <tr class="table-bordered bg-warning ">
                         <td align="center">
@@ -256,7 +319,7 @@
                             <h1 style="text-align: center; font-size: 15px;"> 65 - 70 %</h1>
                         </td>
                     </tr>
-                    <tr class="table-bordered bg-danger ">
+                    <tr class="table-bordered bg-danger " style="color: white;">
                         <td align="center">
                             <h1 style="text-align: center; font-size: 15px;"> Máximo</h1>
                         </td>
@@ -270,6 +333,38 @@
                         </td>
                         <td align="center">
                             <h1 style="text-align: center; font-size: 15px;"> 65 %</h1>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h1 style="text-align: center; font-size: 15px; "> HUMEDAD DEL SUELO</h1>
+
+            <table class="table table-secondary ">
+
+                <tbody>
+                    <tr class="table-bordered bg-warning ">
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> Óptimo</h1>
+                        </td>
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> 70-89 %</h1>
+                        </td>
+                    </tr>
+                    <tr class="table-bordered bg-danger " style="color: white;">
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> Máximo</h1>
+                        </td>
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> 90 %</h1>
+                        </td>
+                    </tr>
+                    <tr class="table-bordered bg-primary ">
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> Mínimo</h1>
+                        </td>
+                        <td align="center">
+                            <h1 style="text-align: center; font-size: 15px;"> 70 %</h1>
                         </td>
                     </tr>
                 </tbody>
@@ -392,11 +487,49 @@
                             <h4 class=" ">HUMEDAD DEL SUELO</h4>
                         </div>
                         <div class="card-body " style="text-align: center;">
-                            <circle-progress titleColor="#000000 " [showSubtitle]="false " unitsFontSize="20 " [showUnits]="true " percent="{{item.humedad }} " [radius]="80 " [outerStrokeWidth]="14 " [innerStrokeColor]=" '#c0c0c0'
-            " [innerStrokeWidth]="14 " [outerStrokeColor]=" '#ff0000' " [animation]="true " [animationDuration]="300 " [outerStrokeGradient]="true " [outerStrokeGradientStopColor]=" '#00ffff' " [space]=" '-14' " [titleFontWeight]=" '700' " [unitsFontWeight]=" '700' "
-                                [titleFontSize]="
+                            {{humedadsueloFresas(item.humedad)}}
+                            <div [ngSwitch]="estadoHRf ">
+                                <div *ngSwitchCase="1">
+                                    <circle-progress titleColor="#000000 " [showSubtitle]="false " unitsFontSize="20 " [showUnits]="true " percent="{{item.humedad }} " [radius]="80 " [outerStrokeWidth]="14 " [innerStrokeColor]=" '#c0c0c0'
+            " [innerStrokeWidth]="14 " [outerStrokeColor]=" '#cc0000' " [animation]="true " [animationDuration]="300 " [outerStrokeGradient]="true " [outerStrokeGradientStopColor]=" '#00ffff' " [space]=" '-14' " [titleFontWeight]=" '700' " [unitsFontWeight]=" '700' "
+                                        [titleFontSize]="
             '38' " [unitsFontSize]=" '34' " [toFixed]=" '1' ">
-                            </circle-progress>
+                                    </circle-progress>
+                                    <div class="alert alert-danger" role="alert ">
+                                        "ESTADO MÁXIMO "
+                                        <button type="button " class="close " data-dismiss="alert " aria-label="Close ">
+                                                    <span aria-hidden="true ">&times;</span>
+                                                </button>
+                                    </div>
+                                </div>
+                                <div *ngSwitchCase="2">
+                                    <circle-progress titleColor="#000000 " [showSubtitle]="false " unitsFontSize="20 " [showUnits]="true " percent="{{item.humedad }} " [radius]="80 " [outerStrokeWidth]="14 " [innerStrokeColor]=" '#c0c0c0'
+            " [innerStrokeWidth]="14 " [outerStrokeColor]=" '#0099FF' " [animation]="true " [animationDuration]="300 " [outerStrokeGradient]="true " [outerStrokeGradientStopColor]=" '#00ffff' " [space]=" '-14' " [titleFontWeight]=" '700' " [unitsFontWeight]=" '700' "
+                                        [titleFontSize]="
+            '38' " [unitsFontSize]=" '34' " [toFixed]=" '1' ">
+                                    </circle-progress>
+                                    <div class="alert alert-primary" role="alert ">
+                                        "ESTADO MÍNIMO"
+                                        <button type="button " class="close " data-dismiss="alert " aria-label="Close ">
+                                                    <span aria-hidden="true ">&times;</span>
+                                                </button>
+                                    </div>
+                                </div>
+                                <div *ngSwitchCase="3">
+                                    <circle-progress titleColor="#000000 " [showSubtitle]="false " unitsFontSize="20 " [showUnits]="true " percent="{{item.humedad }} " [radius]="80 " [outerStrokeWidth]="14 " [innerStrokeColor]=" '#c0c0c0'
+            " [innerStrokeWidth]="14 " [outerStrokeColor]=" '#FFCC00' " [animation]="true " [animationDuration]="300 " [outerStrokeGradient]="true " [outerStrokeGradientStopColor]=" '#00ffff' " [space]=" '-14' " [titleFontWeight]=" '700' " [unitsFontWeight]=" '700' "
+                                        [titleFontSize]="
+            '38' " [unitsFontSize]=" '34' " [toFixed]=" '1' ">
+                                    </circle-progress>
+                                    <div class="alert alert-warning " role="alert ">
+                                        "ESTADO ÓPTIMO "
+                                        <button type="button " class="close" data-dismiss="alert " aria-label="Close ">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="card-footer ">
                             <small class="text-muted ">Actualizado el {{item.fecha| date: 'd/M/yyyy'}}</small>

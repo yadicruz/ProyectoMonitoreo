@@ -44,14 +44,17 @@ export class HumedadComponent implements OnInit {
   dataIdV = [];
   dataVien = [];
   
-  urlTE = 'http://localhost/api/promedioHora/promedioTemperatura.php?opcion=9';
+urlTE = 'http://localhost/api/promedioHora/promedioTemperatura.php?opcion=9';
 urlHE = 'http://localhost/api/promedioHora/promedioTemperatura.php?opcion=10';
+
 listaIDTE = []; listaIDHE = [];
 listaIDFTE = []; listaIDFHE = [];
 listaPromedioTE = []; listaPromedioHE= [];
+listaFinalTE = []; listaFinalHE= [];
 valorM:string[] = [];
     valorN:string[] = [];
-
+    valorN1:string[] = [];
+    valorN2:string[] = [];
     valorO:string[] = [];
     valorP:string[] = [];
     valorQ:string[] = [];
@@ -107,6 +110,15 @@ valorM:string[] = [];
         this.valorN  = this.listaPromedioTE ;
     });
 
+    this.http.get(this.urlTE).subscribe((result: Data[]) => {  
+      result.forEach(x => {  
+        this.listaFinalTE.push(
+          x.finalTE
+        ); 
+      }); 
+        this.valorN1  = this.listaFinalTE ;
+    });
+
     this.http.get(this.urlHE).subscribe((result: Data[]) => {  
       result.forEach(y => {  
         this.listaIDHE.push(
@@ -125,6 +137,14 @@ valorM:string[] = [];
         ); 
       }); 
         this.valorP  = this.listaPromedioHE ;
+    });
+    this.http.get(this.urlHE).subscribe((result: Data[]) => {  
+      result.forEach(x => {  
+        this.listaFinalHE.push(
+          x.finalHE
+        ); 
+      }); 
+        this.valorN2  = this.listaFinalHE ;
     });
     this.listartodos();
     this.listarHumedadExterna();
@@ -280,7 +300,7 @@ valorM:string[] = [];
           labels: this.dataIdV,
           datasets: [
             {
-             label: "Humedad relativa",
+             label: "Precipitación",
               data: this.dataVien,
               borderColor: 'white',
               backgroundColor: "	#006400", 

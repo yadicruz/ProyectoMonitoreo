@@ -29,7 +29,8 @@ export class TemperaturaGComponent implements OnInit {
   data6 = []; 
   //HUMEDAD DEL SUELO FRESAS
   urlFHS = 'http://localhost/api/graficar/graficaInterior/prueba12.php';
-     
+ // urlHSA = 'http://localhost/api/graficar/graficaInterior/prueba1.php';
+    
   //Temperaturas
   //tem jitomate
   url4 = 'http://localhost/api/graficar/graficaInterior/prueba4.php'; 
@@ -55,9 +56,10 @@ export class TemperaturaGComponent implements OnInit {
    
   GraficaTempFre = []; 
   GraficaHum = [];
-   dataIdFre = [];
-  
+  dataIdFre = [];
+  graficaHumedadSuelo = [];
    datanuevo = [];
+   dataIdFresas = [];
   constructor(private http: HttpClient, private router: Router,
     private crudDispositivouno:Dispositivo1ServiceService, 
     ) {
@@ -208,17 +210,17 @@ export class TemperaturaGComponent implements OnInit {
       }); 
     });
 
-
-
-/////////////primer grafica termina
-this.http.get(this.urlHum).subscribe((result: GraficasExterior[]) => {  
-  result.forEach(x => {  
-    this.dataHum.push(
-      x.valorHum
+/////////////////////////////// tercer grafica
+this.http.get(this.urlFID).subscribe((result: Data[]) => {  
+  result.forEach(y => {  
+    this.dataIdFresas.push(
+      y.valorIdFresas
     ); 
       
-  });  
-}); 
+    //console.log(this.dataIdFre);
+  }); 
+});
+//id
 //humedad suelo itomates 
 this.http.get(this.url6).subscribe((result: Data[]) => {  
   result.forEach(x => {  
@@ -230,15 +232,101 @@ this.http.get(this.url6).subscribe((result: Data[]) => {
   }); 
 }); 
 //humedad suelo fresas
+
 this.http.get(this.urlFHS).subscribe((result: Data[]) => {  
   result.forEach(x => {  
     this.dataHusFre.push(
       x.valorHSuFresas
     ); 
       
-    //console.log(this.dataHumFre);
+    console.log(this.dataHusFre);
+  });  
+  this.graficaHumedadSuelo = new Chart('gtempsuelo', {  
+    type: 'line', 
+    data: {  
+     
+      labels: 
+      this.dataIdFresas ,
+
+      datasets: [ 
+        {  
+          label: "Fresa",
+           data: this.dataHusFre,
+           
+           
+           borderColor: 'blue',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: true
+                
+              }],  
+              yAxes: [{  
+                display:true 
+ 
+              }],  
+            } 
+            
+          }
+            
+         } ,
+         //////////////777
+         {  
+           label: "Jitomate",
+            data: this.data6,
+            borderColor: "red",  
+            //backgroundColor: "#000FFF", 
+            options: {  
+             legend: {  
+               display: false ,
+               labels: {
+                 boxWidth: 90,
+                 color: 'red'
+               } 
+             },  
+             scales: {  
+               xAxes: [{  
+                display: true
+                 
+               }],  
+               yAxes: [{  
+                 display:true 
+  
+               }],  
+             } 
+             
+           }
+             
+          }
+         
+        ///////////////////777 
+      ]  
+    }  
+     
   }); 
+});
+
+
+/////////////////////////////////////
+
+/////////////primer grafica termina
+this.http.get(this.urlHum).subscribe((result: GraficasExterior[]) => {  
+  result.forEach(x => {  
+    this.dataHum.push(
+      x.valorHum
+    ); 
+      
+  });  
 }); 
+
 //humedad jitomates
 this.http.get(this.url2).subscribe((result: Data[]) => {  
   result.forEach(y => {  
@@ -290,7 +378,7 @@ this.http.get(this.urlFTE).subscribe((result: Data[]) => {
         
       datasets: [  
         {  
-          label: "HR Exterior",
+          label: "Exterior",
            data: this.dataHum,
            borderColor: 'green',  
           // backgroundColor: "#000FFF", 
@@ -318,9 +406,9 @@ this.http.get(this.urlFTE).subscribe((result: Data[]) => {
          } ,
          //////////////////
         {  
-          label: "HR Jitomates",
+          label: "Jitomate",
            data: this.data2,
-           borderColor: 'darkblue',  
+           borderColor: 'red',  
           // backgroundColor: "#000FFF", 
            options: {  
             legend: {  
@@ -346,9 +434,9 @@ this.http.get(this.urlFTE).subscribe((result: Data[]) => {
          } ,
          //////////////////
         {  
-          label: "HR Fresas",
+          label: "Fresa",
            data: this.dataHumFre,
-           borderColor: "#800000",  
+           borderColor: "blue",  
           // backgroundColor: "#000FFF", 
            options: {  
             legend: {  
@@ -375,65 +463,8 @@ this.http.get(this.urlFTE).subscribe((result: Data[]) => {
             
           }
             
-         } ,
+         } 
          //////////////////
-        {  
-         label: "HS Fresas",
-          data: this.dataHusFre,
-          
-          
-          borderColor: 'red',  
-         // backgroundColor: "#000FFF", 
-          options: {  
-           legend: {  
-             display: false ,
-             labels: {
-               boxWidth: 90,
-               color: 'red'
-             } 
-           },  
-           scales: {  
-             xAxes: [{  
-              display: true
-               
-             }],  
-             yAxes: [{  
-               display:true 
-
-             }],  
-           } 
-           
-         }
-           
-        } ,
-        //////////////777
-        {  
-          label: "HS Jitomates",
-           data: this.data6,
-           borderColor: "#800080",  
-           //backgroundColor: "#000FFF", 
-           options: {  
-            legend: {  
-              display: false ,
-              labels: {
-                boxWidth: 90,
-                color: 'red'
-              } 
-            },  
-            scales: {  
-              xAxes: [{  
-               display: true
-                
-              }],  
-              yAxes: [{  
-                display:true 
- 
-              }],  
-            } 
-            
-          }
-            
-         }
         ///////////////////777 
       ]  
     }  

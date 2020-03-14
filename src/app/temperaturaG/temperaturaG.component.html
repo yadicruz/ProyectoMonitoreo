@@ -1,39 +1,62 @@
 <div class="" style="padding: 30px;">
 
-    <marquee>
-        <h1>COMPORTAMIENTO DE LAS VARIABLES INTERNAS Y EXTERNAS </h1>
-    </marquee>
+    <div>
+        <h3>COMPORTAMIENTO DE LAS VARIABLES INTERNAS Y EXTERNAS </h3>
+    </div>
 
 </div>
-<div class=" container">
+<div class=" container" style="text-align: center;">
 
-    <table class="table table-responsive-lg table-striped" style="font-size: large;">
+    <table class="table table-responsive-lg table-striped" style="font-size: large; text-align: center;">
         <thead>
             <tr class="table-responsive-lg ">
                 <th width="50%">
-                    <div class="card text-white  mb-3" style="max-width: 55rem; background-color: white;">
+                    <div class="card text-white  mb-3" style="max-width: 50rem; background-color: white;">
                         <div class="card-header" style="color: black; background-color:aqua; text-align: center;">TEMPERATURA (°C)</div>
                         <div class="card-body">
                             <div class="chart-container">
                                 <canvas id="gFresasTemp">{{GraficaTempFre }}</canvas>
-                                <h2 style="color: black;">horas</h2>
+                                <h2 style="color: black;">Tiempo</h2>
                             </div>
 
                         </div>
                     </div>
 
                 </th>
-                <th width="50%">
-                    <div class="card text-white  mb-3" style="max-width: 55rem; background-color: white;">
-                        <div class="card-header" style="color: black; background-color: aqua; text-align: center;">HUMEDAD RELATIVA / HUMEDAD DE SUELO (%)
+                <th width="50%" style="text-align: center;">
+                    <div class="card text-white  mb-3" style="max-width: 50rem; background-color: white; ">
+                        <div class="card-header" style="color: black; background-color: aqua; text-align: center;">HUMEDAD RELATIVA (%)
                         </div>
                         <div class="card-body">
                             <canvas id="gHumedad">{{GraficaHum }}</canvas>
-                            <h2 style="color: black;">horas</h2>
+                            <h2 style="color: black;">Tiempo</h2>
                         </div>
 
                     </div>
                 </th>
+
+            </tr>
+
+
+        </thead>
+    </table>
+    <table class="table table-responsive-lg table-striped " style="font-size: large; text-align: center;">
+        <thead>
+            <tr class="table-responsive-lg  ">
+
+                <th width="50%" style="padding: 0px 0px 0px 300px;">
+
+                    <div class="card text-white mb-2 " style="max-width: 50rem; background-color: white; ">
+                        <div class="card-header" style="color: black; background-color: aqua; text-align: center;">HUMEDAD DE SUELO (%)
+                        </div>
+                        <div class="card-body">
+                            <canvas id="gtempsuelo">{{GraficaHumedadSuelo }}</canvas>
+                            <h2 style="color: black;">Tiempo</h2>
+                        </div>
+
+                    </div>
+                </th>
+
             </tr>
         </thead>
     </table>
@@ -41,11 +64,8 @@
 
 
 <div class="col-md-6 offset-md-3 mt-5">
-
     <div align="center">
-        <a [routerLink]="['/monitoreo']" mat-raised-button color="accent" class="btn btn-success">
+        <a [routerLink]="['/monitoreo']" mat-raised-button class="btn btn-primary btn-xs">
             <mat-icon>exit_to_app</mat-icon> volver</a>
-
-
     </div>
 </div>

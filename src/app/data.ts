@@ -21,31 +21,44 @@ export class Data {
 
       idTJ: number;
       promedioTJ: number;
+      finalTJ: number;
+
       idHJ: number;
       promedioHJ: number;
+      finalHJ: number;
 
       idTF: number;
       promedioTF: number;
+      finalTF: number;
+
       idHF: number;
       promedioHF: number;
+      finalHF: number;
 
       idTSJ: number;
       promedioTSJ: number;
+      finalTSJ: number;
 
       idTSF: number;
       promedioTSF: number;
+      finalTSF: number;
 
       idTE: number;
       promedioTE: number;
+      finalTE: number;
+
       fTE: number;;
       fHE: number;
       idHE: number;
       promedioHE: number;
+      finalHE: number;
 
       FHSF: number;
 
 
 nuevo : number;
+
+nuevoSuelo : number;
 
     
 }

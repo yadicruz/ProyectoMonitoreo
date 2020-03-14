@@ -50,11 +50,14 @@ urlHSJ = 'http://localhost/api/promedioHora/promedioTemperatura.php?opcion=7';
 urlHSF = 'http://localhost/api/promedioHora/promedioTemperatura.php?opcion=8';
 
 
-listaIDTJ =[];  listaIDHJ = []; listaIDSJ = [];
+listaIDTJ =[];  listaIDHJ = []; listaIDSJ = []; 
 listaIDTF =[]; listaIDHF = []; listaIDSF = [];
-listaPromedioTJ = []; listaPromedioTF = [];
+listaPromedioTJ = []; listaPromedioTF = []; 
   listaPromedioHJ = []; listaPromedioHF = [];
   listaPromedioHSJ = []; listaPromedioHSF = [];
+  listaFinalTJ = []; listaFinalTF = []; 
+  listaFinalHJ = []; listaFinalHF = [];
+  listaFinalHSJ = []; listaFinalHSF = [];
 listaFfreHS = [];
  
   //Sensor de jitomates humedad
@@ -113,7 +116,12 @@ listaFfreHS = [];
       valorL:string[] = [];
 
       valorMM:string[] = [];
-
+      valorB1:string[] = [];
+      valorB2:string[] = [];
+      valorB3:string[] = [];
+      valorB4:string[] = [];
+      valorB5:string[] = [];
+      valorB6:string[] = [];
       
   constructor(
     private crudDispositivouno:Dispositivo1ServiceService, 
@@ -149,6 +157,15 @@ listaFfreHS = [];
       }); 
         this.valorB  = this.listaPromedioTJ ;
     });
+    ////final
+    this.http.get(this.urlTJ).subscribe((result: Data[]) => {  
+      result.forEach(x => {  
+        this.listaFinalTJ.push(
+          x.finalTJ
+        ); 
+      }); 
+        this.valorB1  = this.listaFinalTJ ;
+    });
     //humedad relativa
     this.http.get(this.urlHJ).subscribe((result: Data[]) => {  
       result.forEach(y => {  
@@ -168,6 +185,17 @@ listaFfreHS = [];
         this.valorD  = this.listaPromedioHJ ;
     });
     
+    ////final
+    this.http.get(this.urlHJ).subscribe((result: Data[]) => {  
+      result.forEach(x => {  
+        this.listaFinalHJ.push(
+          x.finalHJ
+        ); 
+      }); 
+        this.valorB2  = this.listaFinalHJ ;
+    });
+    /////////////////////////
+
     this.http.get(this.urlHSJ).subscribe((result: Data[]) => {  
       result.forEach(y => {  
         this.listaIDSJ.push(
@@ -184,6 +212,14 @@ listaFfreHS = [];
         ); 
       }); 
         this.valorF  = this.listaPromedioHSJ ;
+    });
+    this.http.get(this.urlHSJ).subscribe((result: Data[]) => {  
+      result.forEach(x => {  
+        this.listaFinalHSJ.push(
+          x.finalTSJ
+        ); 
+      }); 
+        this.valorB3  = this.listaFinalHSJ ;
     });
 
     ////FRESAS
@@ -205,6 +241,15 @@ listaFfreHS = [];
         this.valorH  = this.listaPromedioTF ;
     });
 
+    this.http.get(this.urlTF).subscribe((result: Data[]) => {  
+      result.forEach(x => {  
+        this.listaFinalTF.push(
+          x.finalTF
+        ); 
+      }); 
+        this.valorB4  = this.listaFinalTF ;
+    });
+
     this.http.get(this.urlHF).subscribe((result: Data[]) => {  
       result.forEach(y => {  
         this.listaIDHF.push(
@@ -221,6 +266,15 @@ listaFfreHS = [];
         ); 
       }); 
         this.valorJ  = this.listaPromedioHF ;
+    });
+
+    this.http.get(this.urlHF).subscribe((result: Data[]) => {  
+      result.forEach(x => {  
+        this.listaFinalHF.push(
+          x.finalHF
+        ); 
+      }); 
+        this.valorB5  = this.listaFinalHF ;
     });
 
     this.http.get(this.urlHSF).subscribe((result: Data[]) => {  
@@ -251,6 +305,15 @@ listaFfreHS = [];
         ); 
       }); 
         this.valorL  = this.listaPromedioHSF ;
+    });
+
+    this.http.get(this.urlHSF).subscribe((result: Data[]) => {  
+      result.forEach(x => {  
+        this.listaFinalHSF.push(
+          x.finalTSF
+        ); 
+      }); 
+        this.valorB6  = this.listaFinalHSF ;
     });
 
    
