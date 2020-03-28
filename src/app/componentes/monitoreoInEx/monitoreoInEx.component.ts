@@ -12,6 +12,8 @@ import { Chart } from 'chart.js';
 import { HttpClient} from '@angular/common/http';  
 import { Data } from '../../../app/Data';
 import { PromediosService } from '@app/services/promedios.service';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 @Component({
   selector: 'app-monitoreoInEx',
   templateUrl: './monitoreoInEx.component.html',
@@ -132,9 +134,29 @@ listaFfreHS = [];
     private slim:SlimLoadingBarService,
     private http: HttpClient,
     private elementRef: ElementRef,
-    private promediarRegistros: PromediosService
+    private promediarRegistros: PromediosService,
+    iconRegistry: MatIconRegistry, sanitizer: DomSanitizer
     ) {
-     
+      iconRegistry.addSvgIcon(
+        'detalles',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/detalles.svg')
+        );
+        iconRegistry.addSvgIcon(
+          'descargar',
+          sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/descargar.svg')
+          );
+          iconRegistry.addSvgIcon(
+            'ojo',
+            sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/ojo.svg')
+            );
+            iconRegistry.addSvgIcon(
+              'buscar',
+              sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/buscar.svg')
+              );
+              iconRegistry.addSvgIcon(
+                'grafica',
+                sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/grafica.svg')
+                );
 
      }
     

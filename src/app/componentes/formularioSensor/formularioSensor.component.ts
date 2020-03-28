@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { SensorServiceService } from '../../services/sensor-service.service';
 import { Router } from '@angular/router';
 import "rxjs/add/operator/map";
-
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-formularioSensor',
   templateUrl: './formularioSensor.component.html',
-  styleUrls: ['./formularioSensor.component.css']
+  styleUrls: ['./formularioSensor.component.scss']
 })
 export class FormularioSensorComponent implements OnInit {
 
@@ -16,8 +17,12 @@ export class FormularioSensorComponent implements OnInit {
   unidades = [{id:1, nombre:"INTERNO"}, {id:2, nombre:"EXTERNO"}];
   variables = [{id:1, nombre:"TEMPERATURA"},{id:2, nombre:"HUMEDAD"}];
   
-  constructor(private crudSensor:SensorServiceService, private router : Router) { 
+  constructor(private crudSensor:SensorServiceService, private router : Router,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) { 
     this.item = {nombresensor: null};
+    iconRegistry.addSvgIcon(
+      'regresar',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/regresar.svg')
+      );
   }
 
   

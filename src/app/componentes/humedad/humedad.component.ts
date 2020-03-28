@@ -6,6 +6,8 @@ import { Chart } from 'chart.js';
 import { HttpClient} from '@angular/common/http';  
 import { Data } from '../../../app/Data';
 import { GraficasExterior } from '@app/graficasExterior';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 @Component({
   selector: 'app-humedad',
   templateUrl: './humedad.component.html',
@@ -65,8 +67,29 @@ valorM:string[] = [];
     private crud: EstacionServiceService,
     private slim: SlimLoadingBarService,
     private http: HttpClient,
+    
+    iconRegistry: MatIconRegistry, sanitizer: DomSanitizer
    
-  ) { }
+  ) { iconRegistry.addSvgIcon(
+    'detalles',
+    sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/detalles.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'descargar',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/descargar.svg')
+      );
+      iconRegistry.addSvgIcon(
+        'ojo',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/ojo.svg')
+        );
+        iconRegistry.addSvgIcon(
+          'almacenar',
+          sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/almacenar.svg')
+          );
+          iconRegistry.addSvgIcon(
+            'grafica',
+            sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/grafica.svg')
+            ); }
 
   ngOnInit() {
     this.http.get(this.urlTE).subscribe((result: Data[]) => {  

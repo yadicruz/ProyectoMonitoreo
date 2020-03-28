@@ -1,0 +1,17 @@
+button {
+    text-align: right;
+    color: green;
+}
+
+a {
+    text-align: right;
+    color: blue;
+}
+
+:Host {
+    .mat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+}

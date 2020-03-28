@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { SensorServiceService } from "../../services/sensor-service.service";
 import "rxjs/add/operator/map";
 import { SlimLoadingBarService } from 'node_modules/ng2-slim-loading-bar';
-
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 @Component({
   selector: 'app-listadoSensor',
   templateUrl: './listadoSensor.component.html',
-  styleUrls: ['./listadoSensor.component.css']
+  styleUrls: ['./listadoSensor.component.scss']
 })
 export class ListadoSensorComponent implements OnInit {
   filterargs;
@@ -15,7 +16,28 @@ export class ListadoSensorComponent implements OnInit {
   itemsel;
   displayedColumns = ['Descripcion','Editar','Eliminar'];
 
-  constructor(private crudSensor:SensorServiceService, private slim:SlimLoadingBarService) {}
+  constructor(private crudSensor:SensorServiceService, private slim:SlimLoadingBarService,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'agregar',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/agregar.svg')
+      );
+      iconRegistry.addSvgIcon(
+        'editar',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/editar.svg')
+        );
+        iconRegistry.addSvgIcon(
+          'eliminar',
+          sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/eliminar.svg')
+          );
+          iconRegistry.addSvgIcon(
+            'eliminarCom',
+            sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/eliminarCom.svg')
+            );
+            iconRegistry.addSvgIcon(
+              'cancelar',
+              sanitizer.bypassSecurityTrustResourceUrl('assets/imagenes/iconosAngular/cancelar.svg')
+              );
+  }
 
   ngOnInit() {
     this.listarproductos();

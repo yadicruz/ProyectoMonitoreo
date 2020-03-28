@@ -122,7 +122,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
       ),
       MatTableModule, 
       MatTabsModule,
-      MatSlideToggleModule
+      MatSlideToggleModule,
+  
       
    ],
    entryComponents: [VientoComponent],

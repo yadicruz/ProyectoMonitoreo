@@ -1,5 +1,5 @@
 <a mat-raised-button class="btn btn-primary btn-xs" routerLink="/formularioSensor">
-    <mat-icon>add_circle</mat-icon>
+    <mat-icon inline="true" svgIcon="agregar"></mat-icon>
     Agregar
 </a>
 <tr>
@@ -36,13 +36,13 @@
                 </td>
                 <td class="table-primary" align="center">
                     <a [routerLink]="['/detalles', item.idsensor, 5]" mat-raised-button class="btn btn-primary btn-xs ">
-                        <mat-icon>edit</mat-icon> Editar
+                        <mat-icon svgIcon="editar"></mat-icon> Editar
                     </a>
 
                 </td>
                 <td class="table-danger" align="center">
                     <button mat-raised-button class="btn btn-danger btn-xs" (click)="confirmacion(item)" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-left: 9px">
-                        <mat-icon>delete_sweep</mat-icon> Eliminar
+                        <mat-icon svgIcon="eliminar"></mat-icon> Eliminar
                     </button>
 
                 </td>
@@ -69,10 +69,10 @@
             <div class="modal-footer">
                 <button mat-raised-button class="btn btn-primary btn-sm " data-dismiss="modal" data-toggle="modal" style="margin-left: 3px">
                     
-                    <mat-icon>not_interested</mat-icon> 
+                    <mat-icon svgIcon="cancelar"></mat-icon> 
                     Cancelar</button>
                 <button mat-raised-button class="btn btn-danger btn-sm" (click)="borrar()" data-dismiss="modal">
-                    <mat-icon>delete</mat-icon> 
+                    <mat-icon  svgIcon="eliminarCom"></mat-icon> 
                     Borrar</button>
 
             </div>

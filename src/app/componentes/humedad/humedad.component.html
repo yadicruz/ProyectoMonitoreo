@@ -21,8 +21,8 @@
                             </div>
                             <div class="card-footer" *ngFor="let item of listadoTemperatura" style="color: black; font-size: 12px;">Fecha/Hora:{{item.Fecha}} {{item.Tiempo}}
                                 <hr>
-                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#temperaturaE" style="font-size: 15px;" mat-raised-button style="background-color:  purple; color: white;">
-                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#temperaturaE" style="font-size: 15px;" mat-raised-button style="background-color:  green; color: white;">
+                                    <mat-icon svgIcon="detalles"></mat-icon> Detalles</a>
 
                             </div>
                         </div>
@@ -37,8 +37,8 @@
                             </div>
                             <div class="card-footer" *ngFor="let item of listadoHumedad" style="color: black; font-size: 12px;">Fecha / Hora: {{item.Fecha}} {{item.Tiempo}}
                                 <hr>
-                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#humedadE" style="font-size: 15px;" mat-raised-button color="warn">
-                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#humedadE" style="font-size: 15px;" mat-raised-button style="background-color:  green; color: white;">
+                                    <mat-icon svgIcon="detalles"></mat-icon> Detalles</a>
 
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                             </div>
                             <div class="card-footer" *ngFor="let item of listadoRocio" style="color: black; font-size: 12px;">Fecha/Hora:{{item.Fecha}} {{item.Tiempo}}
                                 <hr>
-                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#vientoE" style="font-size: 15px;" mat-raised-button style="background-color:  blue; color: white;">
-                                    <mat-icon>list_alt</mat-icon> Detalles</a>
+                                <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#vientoE" style="font-size: 15px;" mat-raised-button style="background-color: green; color: white;">
+                                    <mat-icon svgIcon="detalles"></mat-icon> Detalles</a>
 
                             </div>
                         </div>
@@ -76,18 +76,18 @@
                         <div align="center">
                             <input style="margin: 0.2px" class="btn btn-primary " type="file" accept="document/*">
                             <hr>
-                            <a href="http://localhost/api/estacionLectura.php" style="margin: 0.6px" mat-raised-button style="background-color:  red; color: white;" class="btn">
-                                <mat-icon>unarchive</mat-icon> Aceptar</a>
+                            <a href="http://localhost/api/estacionLectura.php" style="margin: 0.6px" mat-raised-button style="background-color:  blue; color: white;" class="btn">
+                                <mat-icon svgIcon="almacenar"></mat-icon> Aceptar</a>
                         </div>
                     </th>
                     <th width="15%">
                         Descarga y comparación de registros
                         <hr>
                         <a href="http://localhost/api/descargar/reporte.php" style="margin: 0.6px" mat-raised-button style="background-color:  green; color: white;" class="btn">
-                            <mat-icon>archive</mat-icon> Descargar</a>
+                            <mat-icon svgIcon="descargar"></mat-icon> Descargar</a>
 
                         <a [routerLink]="['/temperaturaG']" style="margin: 2px" mat-raised-button color="warn" class="btn btn-primary">
-                            <mat-icon>timeline</mat-icon> Graficar</a>
+                            <mat-icon svgIcon="grafica"></mat-icon> Graficar</a>
                         <hr>
 
                         <!--
@@ -109,7 +109,7 @@
                     </mat-panel-title>
                     <mat-panel-description>
                         .
-                        <mat-icon>remove_red_eye</mat-icon>
+                        <mat-icon svgIcon="ojo"></mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="row">
