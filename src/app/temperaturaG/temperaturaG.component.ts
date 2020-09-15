@@ -53,7 +53,8 @@ export class TemperaturaGComponent implements OnInit {
   urlFID = 'http://localhost/api/graficar/graficaInterior/prueba77.php';  
   
   urlNUEVO= 'http://localhost/api/graficar/graficaInterior/prueba6.php'; 
-   
+   maximo = [35,35,35,35,35,35,35,35,35];
+   minimo = [12,12,12,12,12,12,12,12,12];
   GraficaTempFre = []; 
   GraficaHum = [];
   dataIdFre = [];
@@ -144,6 +145,8 @@ export class TemperaturaGComponent implements OnInit {
              } ,
              //////////////777
              
+             ////////////////7
+             
             {  
              label: "Jitomates",
               data: this.data4,
@@ -191,11 +194,11 @@ export class TemperaturaGComponent implements OnInit {
                 },  
                 scales: {  
                   xAxes: [{  
-                   display: true
+                   display: false
                     
                   }],  
                   yAxes: [{  
-                    display:true 
+                    display:false
      
                   }],  
                 } 

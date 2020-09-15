@@ -7,7 +7,7 @@ import { Dispositivo2ServiceService } from "../../services/dispositivo2-service.
 import { Dispositivo3ServiceService } from "../../services/dispositivo3-service.service";
 import { Dispositivo4ServiceService } from "../../services/dispositivo4-service.service";
 import { Dispositivo5ServiceService } from "../../services/dispositivo5-service.service";
-
+import { SensorServiceService } from "../../services/sensor-service.service";
 import { Chart } from 'chart.js';  
 import { HttpClient} from '@angular/common/http';  
 import { Data } from '../../../app/Data';
@@ -124,7 +124,19 @@ listaFfreHS = [];
       valorB4:string[] = [];
       valorB5:string[] = [];
       valorB6:string[] = [];
-      
+      maximoT = [30,30,30,30,30,30,30,30,30];
+   minimoT = [15,15,15,15,15,15,15,15,15];
+   maximoR = [75,75,75,75,75,75,75,75,75];
+   minimoR = [60,60,60,60,60,60,60,60,60];
+   maximoS = [60,60,60,60,60,60,60,60,60];
+   minimoS = [40,40,40,40,40,40,40,40,40];
+
+   maximoTF = [25,25,25,25,25,25,25,25,25];
+   minimoTF = [12,12,12,12,12,12,12,12,12];
+   maximoRF = [70,70,70,70,70,70,70,70,70];
+   minimoRF = [65,65,65,65,65,65,65,65,65];
+   maximoSF = [90,90,90,90,90,90,90,90,90];
+   minimoSF = [70,70,70,70,70,70,70,70,70];
   constructor(
     private crudDispositivouno:Dispositivo1ServiceService, 
     private crudDispositivodos:Dispositivo2ServiceService, 
@@ -133,7 +145,7 @@ listaFfreHS = [];
     private crudDispositivocinco:Dispositivo5ServiceService,
     private slim:SlimLoadingBarService,
     private http: HttpClient,
-    private elementRef: ElementRef,
+    
     private promediarRegistros: PromediosService,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer
     ) {
@@ -427,7 +439,69 @@ listaFfreHS = [];
                   color: 'red'
                 } 
               }
-            }  
+            } ,
+            ///////////////777
+            {  
+              label: "Máximo",
+              
+               data: this.maximoRF,
+               
+               
+               borderColor: 'red',  
+              // backgroundColor: "#000FFF", 
+               options: {  
+                legend: {  
+                  display: false ,
+                  labels: {
+                    boxWidth: 90,
+                    color: 'red'
+                  } 
+                },  
+                scales: {  
+                  xAxes: [{  
+                   display: false
+                    
+                  }],  
+                  yAxes: [{  
+                    display:false 
+     
+                  }],  
+                } 
+                
+              }
+                
+             } ,
+             {  
+              label: "Mínimo",
+              display:false,
+               data: this.minimoRF,
+               
+               
+               borderColor: 'yellow',  
+              // backgroundColor: "#000FFF", 
+               options: {  
+                legend: {  
+                  display: false ,
+                  labels: {
+                    boxWidth: 90,
+                    color: 'red'
+                  } 
+                },  
+                scales: {  
+                  xAxes: [{  
+                   display: true
+                    
+                  }],  
+                  yAxes: [{  
+                    display:true 
+     
+                  }],  
+                } 
+                
+              }
+                
+             } 
+            /////////////// 
           ]  
         } 
       }); 
@@ -484,7 +558,70 @@ listaFfreHS = [];
               } 
               
             }   
-          }  
+          } , 
+          //////
+          {  
+            label: "Máximo",
+            
+             data: this.maximoT,
+             
+             
+             borderColor: 'red',  
+            // backgroundColor: "#000FFF", 
+             options: {  
+              legend: {  
+                display: false ,
+                labels: {
+                  boxWidth: 90,
+                  color: 'red'
+                } 
+              },  
+              scales: {  
+                xAxes: [{  
+                 display: false
+                  
+                }],  
+                yAxes: [{  
+                  display:false 
+   
+                }],  
+              } 
+              
+            }
+              
+           } ,
+           {  
+            label: "Mínimo",
+            display:false,
+             data: this.minimoT,
+             
+             
+             borderColor: 'yellow',  
+            // backgroundColor: "#000FFF", 
+             options: {  
+              legend: {  
+                display: false ,
+                labels: {
+                  boxWidth: 90,
+                  color: 'red'
+                } 
+              },  
+              scales: {  
+                xAxes: [{  
+                 display: true
+                  
+                }],  
+                yAxes: [{  
+                  display:true 
+   
+                }],  
+              } 
+              
+            }
+              
+           } 
+        
+          //////
         ]  
       }  
       
@@ -545,7 +682,69 @@ this.http.get(this.url6).subscribe((result: Data[]) => {
            
          }
            
-        }  
+        },
+        /////
+        {  
+          label: "Máximo",
+          
+           data: this.maximoS,
+           
+           
+           borderColor: 'red',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: false
+                
+              }],  
+              yAxes: [{  
+                display:false 
+ 
+              }],  
+            } 
+            
+          }
+            
+         } ,
+         {  
+          label: "Mínimo",
+          display:false,
+           data: this.minimoS,
+           
+           
+           borderColor: 'yellow',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: true
+                
+              }],  
+              yAxes: [{  
+                display:true 
+ 
+              }],  
+            } 
+            
+          }
+            
+         }
+        /////  
       ]  
     }  
      
@@ -585,10 +784,8 @@ this.http.get(this.urlFTE).subscribe((result: Data[]) => {
         {  
          label: "Temperatura Fresas",
           data: this.dataTempFre,
-          
-          
           borderColor: 'white',  
-          backgroundColor: "	#006400", 
+          backgroundColor: "#006400", 
           options: {  
            legend: {  
              display: false ,
@@ -610,7 +807,67 @@ this.http.get(this.urlFTE).subscribe((result: Data[]) => {
            
          }
            
-        }  
+        } ,
+        //
+        {  
+          label: "Máximo",
+          
+           data: this.maximoTF,
+           borderColor: 'red',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: false
+                
+              }],  
+              yAxes: [{  
+                display:false 
+ 
+              }],  
+            } 
+            
+          }
+            
+         } ,
+         {  
+          label: "Mínimo",
+          display:false,
+           data: this.minimoTF,
+           
+           
+           borderColor: 'yellow',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: true
+                
+              }],  
+              yAxes: [{  
+                display:true 
+ 
+              }],  
+            } 
+            
+          }
+            
+         }
+        // 
       ]  
     }  
      
@@ -672,7 +929,70 @@ this.http.get(this.urlFHU).subscribe((result: Data[]) => {
            
          }
            
-        }  
+        } ,
+        ////
+        {  
+          label: "Máximo",
+          
+           data: this.maximoRF,
+           
+           
+           borderColor: 'red',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: false
+                
+              }],  
+              yAxes: [{  
+                display:false 
+ 
+              }],  
+            } 
+            
+          }
+            
+         } ,
+         {  
+          label: "Mínimo",
+          display:false,
+           data: this.minimoRF,
+           
+           
+           borderColor: 'yellow',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: true
+                
+              }],  
+              yAxes: [{  
+                display:true 
+ 
+              }],  
+            } 
+            
+          }
+            
+         } 
+      
+        //// 
       ]  
     }  
      
@@ -707,7 +1027,7 @@ this.http.get(this.urlFHS).subscribe((result: Data[]) => {
       labels: this.dataIdHsFre,
       datasets: [
         {
-         label: "Humedad Fresas",
+         label: "Humedad de suelo",
           data: this.dataHusFre,
           borderColor: 'white',  
           backgroundColor: "	#006400", 
@@ -734,7 +1054,70 @@ this.http.get(this.urlFHS).subscribe((result: Data[]) => {
            
          }
            
-        }  
+        } ,
+        //
+        {  
+          label: "Máximo",
+          
+           data: this.maximoSF,
+           
+           
+           borderColor: 'red',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: false
+                
+              }],  
+              yAxes: [{  
+                display:false 
+ 
+              }],  
+            } 
+            
+          }
+            
+         } ,
+         {  
+          label: "Mínimo",
+          display:false,
+           data: this.minimoSF,
+           
+           
+           borderColor: 'yellow',  
+          // backgroundColor: "#000FFF", 
+           options: {  
+            legend: {  
+              display: false ,
+              labels: {
+                boxWidth: 90,
+                color: 'red'
+              } 
+            },  
+            scales: {  
+              xAxes: [{  
+               display: true
+                
+              }],  
+              yAxes: [{  
+                display:true 
+ 
+              }],  
+            } 
+            
+          }
+            
+         }
+        //
+
       ]  
     }  
      
@@ -759,7 +1142,7 @@ listarCompletoSuelo(){
 
 
   confirmacion(item : any){
-    console.log("Vamo a elimina!");
+    console.log("Eliminar!");
     this.itemsel = item;
   }
 

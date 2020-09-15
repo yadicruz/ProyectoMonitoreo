@@ -142,6 +142,7 @@
                         <mat-icon svgIcon="ojo"></mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
+
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card">
@@ -554,14 +555,14 @@
             <thead>
                 <tr class="table-bordered ">
                     <th width="10%">
-                        <hr> Registros del monitoreo interno
+                        <hr> Registros a descargar
                         <hr>
                         <a href="http://localhost/api/descargar/reporte.php" style="margin: 0.6px" mat-raised-button style="background-color:  green; color: white;" class="btn">
                             <mat-icon svgIcon="descargar"></mat-icon> Descargar</a>
                         <hr>
                     </th>
                     <th width="10%">
-                        <hr> Registros a descargar
+                        <hr> Registros del monitoreo interno
                         <hr>
                         <a class="btn btn-primary " (click)="confirmacion(item)" data-toggle="modal" style="margin: 0.6px" data-target="#graficar" style="font-size: 15px;" mat-raised-button style="background-color:  rgba(0, 0, 255, 0.979); color: white;">
                             <mat-icon svgIcon="buscar"></mat-icon> Detalles</a>

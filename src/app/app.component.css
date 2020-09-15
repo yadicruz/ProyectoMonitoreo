@@ -280,3 +280,9 @@ footer {
     color: blue;
     font-size: 15px;
 }
+
+.mat-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+}
